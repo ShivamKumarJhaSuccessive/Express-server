@@ -1,4 +1,5 @@
  # The Twelve Factors:
+ >>12-factor app is a methodology or set of principles for building the scalable and performant, independent, and most resilient enterprise applications. It establishes the general principles and guidelines for creating robust enterprise applications. It is a methodology for building software-as-a-service applications.
 
 1. Codebase
 >One codebase tracked in revision control, many deploys.
@@ -26,4 +27,4 @@
 11. Logs
 >Treat logs as event streams
 12. Admin processes
->Run admin/management tasks as one-off processes
+>Run admin/management tasks as one-off processes.
