@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start":"npx babel-node extra",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/ShivamKumarJhaSuccessive/Express-server/issues"
   },
-  "homepage": "https://github.com/ShivamKumarJhaSuccessive/Express-server#readme"
+  "homepage": "https://github.com/ShivamKumarJhaSuccessive/Express-server#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0"
+  }
 }

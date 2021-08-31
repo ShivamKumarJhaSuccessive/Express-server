@@ -1,4 +1,4 @@
-function createDimondShape(size){
+function diamond(size){
     for(var i=1;i<=size;i++){
        for(var s=size-1;s>=i;s--){
           process.stdout.write(" ");
@@ -29,4 +29,6 @@ function createDimondShape(size){
     }
   }
   const size = process.argv.slice(2);
-  createDimondShape(Number(size));
+  //createDimondShape(Number(size));
+  let a = Number(size);
+export default diamond;
