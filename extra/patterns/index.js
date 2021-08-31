@@ -1,2 +1,2 @@
-export {default as createDiamondShape} from './diamond';
-export {default as createaequilateral} from './equilateral';
+export {default as diamond} from './diamond';
+export {default as equilateral} from './equilateral';
