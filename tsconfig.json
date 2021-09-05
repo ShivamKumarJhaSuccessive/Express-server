@@ -23,7 +23,7 @@
 },
 "exclude": ["dist"],
 "include": [
-"extraTs"
+"extraTs", "src"
 ],
 "types": ["src/types"]
 }
