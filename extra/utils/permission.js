@@ -1,4 +1,5 @@
-permissions = 
+const permissions = 
+
 {
     'getUsers': {
     all: ['head-trainer'],

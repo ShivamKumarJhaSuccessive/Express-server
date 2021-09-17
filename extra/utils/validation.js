@@ -1,3 +1,15 @@
+//Validate Email
+const validateEmail = (email) => {
+
+	//regex
+	const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(successive.tech|successive.tech)$/
+	var check =  emailRegexp.test(email)
+	console.log(check);
+	return check;
+
+}
+
+
 const users = [     // Array of Objects, Objects contain email
     {
         traineeEmail: 'trainee1@successive.tech',
@@ -15,20 +27,13 @@ const users = [     // Array of Objects, Objects contain email
     },
     ]
     
-    const validateEmail=(email)=>{
-        
-        var validRegex = /^[a-zA-Z0-9.^]+@successive.tech/;
     
-        if (validRegex.test(email)) 
-            return true;
-      
-        else return false;
-    }
     
     var validUsers = []     // List of Valid users
     var invalidUsers = []   // List of Invalid users
     
     const validateUsers=(users)=>{
+
     
         users.forEach(element => {
             const {traineeEmail} = element      // using destructing 
@@ -96,3 +101,15 @@ const users = [     // Array of Objects, Objects contain email
      2
     
      */
+    // Extract Value from Property
+const extractValue = (arr, prop) => {
+
+    let extractedValue = arr.map(item => item[prop]);
+    return extractedValue;
+
+}
+
+const emailTrainees = extractValue(users, 'traineeEmail');
+const emailReviewers = extractValue(users, 'reviewerEmail');
+console.log("Trainee Emails:", emailTrainees)
+console.log("Reviewer Emails:", emailReviewers)
