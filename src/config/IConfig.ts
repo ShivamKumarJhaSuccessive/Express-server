@@ -1,4 +1,7 @@
 interface IConfig{
     port: string,
-    env: string
+    env: string;
+    secret:string;
+    
+
 }

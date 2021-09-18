@@ -37,6 +37,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
     "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
     "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
