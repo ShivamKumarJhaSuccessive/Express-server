@@ -1,5 +1,5 @@
 import * as jwt from 'jsonwebtoken';
-import  config  from '../../config/configuration';
+import  Configure  from '../../config/configuration';
 import hasPermission from '../../../extraTs/utils/permissions';
 
 export default (module, permissionType) => async(req, res, next) => {
@@ -9,12 +9,12 @@ export default (module, permissionType) => async(req, res, next) => {
     if (!token) {
         next({ error : 'Unauthorized', message : 'Token not found', status : 403});
     }
-    const { secret } = config;
+    const { secret } = Configure;
     console.log(secret);
 
     let user;
     try {
-        debugger
+        
         user = jwt.verify(token, secret);
     }
     catch (err) {

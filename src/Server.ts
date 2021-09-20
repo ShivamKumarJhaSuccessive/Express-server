@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { errorHandler, notFoundRoute } from './libs/routes';
 import router from './routes';
+import Database from './libs/Database'
 
 
 export default class Server {
@@ -83,16 +84,16 @@ export default class Server {
    * Then, Server
    */
   async run() {
-    const { port, env } = this.config;
+    const { port, env,url} = this.config;
     try {
-      
+      await Database.open(url)
       this.app.listen(port, () => {
         const message = `|| App is running at port '${port}' in '${env}' mode ||`;
         console.log(message);
       });
     }
     catch (error) {
-     
+     await Database.disconnect(url)
       console.log('Server connection error.', error);
     }
     return this;
