@@ -1,4 +1,5 @@
 import { connect, disconnect } from 'mongoose';
+import seedData from './seedData'; 
 
 export default class Database {
     public static open(mongoURI: string) {
@@ -9,7 +10,7 @@ export default class Database {
                     return reject(err);
                 }
                 console.log('Connected to database', mongoURI);
-                
+                seedData();
                 return resolve('Success');
             });
         });
