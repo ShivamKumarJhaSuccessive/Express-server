@@ -1,6 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import  Configure  from '../../config/configuration';
 import hasPermission from '../../../extraTs/utils/permissions';
+import {userRepository} from '../seedData'
 
 export default (module, permissionType) => async(req, res, next) => {
     debugger
@@ -25,6 +26,12 @@ export default (module, permissionType) => async(req, res, next) => {
     if (!user) {
         next({ error : 'Unauthorized', message : 'User not Authorized', status : 403});
     }
+
+    const userData = await userRepository.find({ _id: user._id });
+
+  if (!userData) {
+      next({ error: 'Unauthorized', message: 'Permission Denied', status: 403 });
+  }
 
     if (!hasPermission( module, user.role, permissionType )) {
         next({ error : 'Unauthorized', message : 'Permisssion Denied', status : 403});

@@ -7,4 +7,5 @@ const router = Router();
 
 router.get('/',validationHandler(validation.get), TraineeRoutes.get);
 router.post('/',validationHandler(validation.create), TraineeRoutes.post);
+router.post('/createToken', TraineeRoutes.createToken);
 export default router;

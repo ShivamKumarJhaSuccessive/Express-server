@@ -1,6 +1,6 @@
 import UserRepository from '../repositories/user/UserRepository';
 
-const userRepository: UserRepository = new UserRepository();
+export const userRepository: UserRepository = new UserRepository();
 export default () => {
     userRepository.count()
         .then(res => {
