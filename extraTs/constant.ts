@@ -9,6 +9,7 @@ const permissions: UserType =
     }
 }
 
+
 const users: EmailType[] = [     // Array of Objects, Objects contain email
     {
         traineeEmail: 'trainee1@successive.tech',
