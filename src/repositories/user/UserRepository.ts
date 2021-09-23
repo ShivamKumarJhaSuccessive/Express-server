@@ -1,33 +1,36 @@
-import * as mongoose from 'mongoose';
+
 import { userModel } from './UserModel';
 import IUserModel from './IUserModel';
+import VersionableRepository from '../versionable/VersionableRepository';
+import { Query, Model, UpdateQuery } from 'mongoose';
 
-export default class UserRepository {
-    public static createObejectId() {
-        return String(new mongoose.Types.ObjectId());
-    }
+export default class UserRepository extends VersionableRepository<IUserModel, Model<IUserModel>> {
 
-    public findOne(query): mongoose.Query<IUserModel, IUserModel> {
-        return userModel.findOne(query).lean();
+    constructor() {
+      super(userModel);
     }
-
-    public find(query, projection?: any, options?: any): mongoose.Query<IUserModel[], IUserModel> {
-        return userModel.find(query, projection, options);
+  
+    public findSingle(query: any): Query<IUserModel, IUserModel, {}> {
+      return super.findOne(query).lean();
     }
-    public count(): mongoose.Query<number, IUserModel> {
-        return userModel.count();
+  
+    public findAll(query: any, projection?: any, options?: any): Query<IUserModel[], IUserModel> {
+      return super.find(query, projection, options);
     }
-    public create(data: any): Promise<IUserModel> {
-        console.log('UserRepository::create create', data);
-        const id = UserRepository.createObejectId();
-        const model = new userModel({
-            _id: id,
-            ...data,
-        });
-        return model.save();
+  
+    public countDoc(query: any = {}): Query<number, IUserModel> {
+      return super.count(query);
     }
-    public update(data: any): mongoose.UpdateQuery<IUserModel> {
-        console.log('userRepository:: update', data);
-        return userModel.updateOne(data);
+  
+    public createDoc(data: any): Promise<IUserModel> {
+      return super.create(data);
     }
-}
+  
+    public updateDoc(data: any): Promise<IUserModel> {
+      return super.update(data);
+    }
+  
+    public deleteDoc(data: any): UpdateQuery<IUserModel> {
+      return super.softDelete(data.originalId);
+    }
+  }

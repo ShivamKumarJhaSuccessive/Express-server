@@ -6,7 +6,7 @@ import configuration from '../../config/configuration';
 
 class trainees{
     async get(req:Request, res:Response, next: NextFunction){
-        const userData = await userRepository.find({});
+        const userData = await userRepository.findAll({});
         return res.status(200).send({message: 'Fetched data Succesfully',data: userData});
         
     }
