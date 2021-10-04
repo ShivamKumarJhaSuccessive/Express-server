@@ -1,4 +1,4 @@
-import { hasPermission } from "./permissions";
+import { hasPermission } from "./permission";
 import { validateUsers, validUsers, invalidUsers } from "./validation";
 
 
