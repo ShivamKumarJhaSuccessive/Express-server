@@ -18,10 +18,10 @@ const users = [     // Array of Objects, Objects contain email
     
     
     
-    var validUsers = []     // List of Valid users
-    var invalidUsers = []   // List of Invalid users
+    export var validUsers = []     // List of Valid users
+    export var invalidUsers = []   // List of Invalid users
     
-    const validateUsers=(users)=>{
+    export const validateUsers=(users)=>{
     
         users.forEach(element => {
             const {traineeEmail} = element      // using destructing 
@@ -89,3 +89,15 @@ const users = [     // Array of Objects, Objects contain email
      2
     
      */
+    // Extract Value from Property
+const extractValue = (arr, prop) => {
+
+    let extractedValue = arr.map(item => item[prop]);
+    return extractedValue;
+
+}
+
+const emailTrainees = extractValue(users, 'traineeEmail');
+const emailReviewers = extractValue(users, 'reviewerEmail');
+console.log("Trainee Emails:", emailTrainees)
+console.log("Reviewer Emails:", emailReviewers)
