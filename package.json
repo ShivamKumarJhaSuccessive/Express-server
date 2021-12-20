@@ -58,7 +58,9 @@
     "node-cleanup": "^2.1.2",
     "nodemon": "^2.0.12",
     "prompt-sync": "^4.2.0",
-    "ps-tree": "^1.2.0"
+    "ps-tree": "^1.2.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

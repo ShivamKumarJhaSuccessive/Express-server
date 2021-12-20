@@ -1,5 +1,5 @@
 export default Object.freeze({
-    // POST /api/trainee/create
+    // POST /api/user/create
     create: {
       
       name: {
@@ -14,7 +14,7 @@ export default Object.freeze({
         errorMessage: 'Name is required',
       },
     },
-    // DELETE /api/trainee/delete
+    // DELETE /api/user/delete
     delete: {
       id: {
         required: true,
@@ -22,7 +22,7 @@ export default Object.freeze({
         errorMessage: 'Id is required',
       },
     },
-    // GET /api/trainee/get
+    // GET /api/user/get
     get: {
       skip: {
         required: false,
@@ -39,7 +39,7 @@ export default Object.freeze({
           errorMessage: 'Limit is invalid',
       },
     },
-    // UPDATE /api/trainee/update
+    // UPDATE /api/user/update
     update: {
       id: {
         required: true,
