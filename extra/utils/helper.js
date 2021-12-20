@@ -1,12 +1,10 @@
-//Validate Email
-const validateEmail = (email) => {
+const validateEmail=(email)=>{
+        
+    var validRegex = /^[a-zA-Z0-9.^]+@successive.tech/;
 
-	//regex
-	const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(successive.tech|successive.tech)$/
-	var check =  emailRegexp.test(email)
-	console.log(check);
-	return check;
-
+    if (validRegex.test(email)) 
+        return true;
+  
+    else return false;
 }
-
 export { validateEmail }

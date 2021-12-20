@@ -1,15 +1,4 @@
-//Validate Email
-const validateEmail = (email) => {
-
-	//regex
-	const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(successive.tech|successive.tech)$/
-	var check =  emailRegexp.test(email)
-	console.log(check);
-	return check;
-
-}
-
-
+import { validateEmail } from "./helper"
 const users = [     // Array of Objects, Objects contain email
     {
         traineeEmail: 'trainee1@successive.tech',
@@ -29,11 +18,10 @@ const users = [     // Array of Objects, Objects contain email
     
     
     
-    var validUsers = []     // List of Valid users
-    var invalidUsers = []   // List of Invalid users
+    export var validUsers = []     // List of Valid users
+    export var invalidUsers = []   // List of Invalid users
     
-    const validateUsers=(users)=>{
-
+    export const validateUsers=(users)=>{
     
         users.forEach(element => {
             const {traineeEmail} = element      // using destructing 

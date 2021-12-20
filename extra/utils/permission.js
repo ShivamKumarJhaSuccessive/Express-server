@@ -1,5 +1,5 @@
+import { permission } from "../constant"
 const permissions = 
-
 {
     'getUsers': {
     all: ['head-trainer'],
@@ -9,7 +9,7 @@ const permissions =
     }
 }
 
-const hasPermission = (moduleName, role, permissionType) =>{
+export const hasPermission = (moduleName, role, permissionType) =>{
     
     let found = false
     const obj = permissions[moduleName]         // fetching the module from name

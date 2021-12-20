@@ -12,9 +12,6 @@ function equilateral(size){
     }
     
   }
-  const size = process.argv.slice(2);
-
-  //createDimondShape(Number(size));
-  let a = Number(size);
+  
 export default equilateral;
 
