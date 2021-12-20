@@ -1,7 +1,9 @@
-import { userRepository } from './../../libs/seedData';
+import { userRepository, BCRYPT_SALT_ROUNDS } from './../../libs/seedData';
 import { Request, Response, NextFunction } from 'express';
 import * as jwt from 'jsonwebtoken';
 import configuration from '../../config/configuration';
+import * as bcrypt from 'bcrypt'
+
 
 
 class trainees{
@@ -10,12 +12,12 @@ class trainees{
         return res.status(200).send({message: 'Fetched data Succesfully',data: userData});
         
     }
-    post( req: Request, res: Response, next: NextFunction){
-        const {name,designation,location} = req.body;
-        if(!name){
-            return res.status(400).send({message:'required trainee details', error: 'error msg'});
-        }
-        return res.status(200).send({message:'trainee added succesfully'});
+    async post( req: Request, res: Response, next: NextFunction){
+        const {name,email,password} = req.body;
+        const passwordHash = await bcrypt.hash(password, BCRYPT_SALT_ROUNDS);
+        const newUser = { name,email, password: passwordHash };
+        const userData = await userRepository.createDoc(newUser);
+        return res.status(200).send({message:'trainee added succesfully',data:{userData}});
     }
     createToken(req: Request, res: Response, next: NextFunction) {
         try {

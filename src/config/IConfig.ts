@@ -3,6 +3,7 @@ interface IConfig{
     env: string;
     secret:string;
     url:string;
+    password:string;
     
 
 }
